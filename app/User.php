@@ -5,7 +5,6 @@ use App\Classes\Helper;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Support\Facades\Validator;
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Support\Facades\Auth;
@@ -18,9 +17,7 @@ use File;
 class User extends Authenticatable
 {
     use Notifiable;
-    use HasRoles;
     use HasApiTokens;
-    use LogsActivity;
 
 
     protected $guard = 'api';
@@ -31,13 +28,10 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'added_by', 'updated_by', 'name', 'image', 'latitude', 'longitude','address','country_code', 'phone', 'date_of_birth', 'gender', 'email', 'type', 'password', 'otp', 'device_type', 'device_token', 'verified_by', 'social_provider', 'social_token', 'social_id', 'isFirstTime', 'email_verified_at', 'status', 'mode'];
+        'added_by', 'updated_by', 'name', 'image', 'latitude', 'longitude','address','country_code', 'phone', 'date_of_birth', 'gender', 'email', 'type', 'password', 'otp', 'device_type', 'device_token', 'verified_by', 'social_provider', 'social_token', 'social_id', 'isFirstTime', 'email_verified_at', 'status', 'mode', 'remarks', 'opening_balance'];
 
     protected $appends = ['ratings'];
 
-    protected static $logAttributes = ['added_by', 'updated_by', 'name', 'image', 'latitude', 'longitude','address','country_code', 'phone', 'date_of_birth', 'gender', 'email', 'type', 'password', 'otp', 'device_type', 'device_token', 'verified_by', 'social_provider', 'social_token', 'social_id', 'isFirstTime', 'email_verified_at', 'status', 'mode'];
-    protected static $logName = 'User';
-    protected static $logOnlyDirty = true;
 
     /**
      * The attributes that should be hidden for arrays.

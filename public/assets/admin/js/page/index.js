@@ -1,10 +1,10 @@
+
 "use strict";
 
 $(function () {
     chart1();
-    chart2();
     chart3();
-    chart4();
+
 
     // select all on checkbox click
     $("[data-checkboxes]").each(function () {
@@ -44,7 +44,7 @@ $(function () {
 function chart1() {
     var options = {
         chart: {
-            height: 230,
+            height: 210,
             type: "line",
             shadow: {
                 enabled: true,
@@ -66,23 +66,18 @@ function chart1() {
             curve: "smooth"
         },
         series: [{
-            name: "High - 2019",
+            name: "High - 2021",
             data: [5, 15, 14, 36, 32, 32]
-        },
-        {
-            name: "Low - 2019",
-            data: [7, 11, 30, 18, 25, 13]
-        }
-        ],
+        }],
         grid: {
             borderColor: "#e7e7e7",
             row: {
-                colors: ["#f3f3f3", "transparent"], // takes an array which will be repeated on columns
+                colors: ["#f3f3f3", "transparent"], 
                 opacity: 0.0
             }
         },
         markers: {
-            size: 6
+            size: 8
         },
         xaxis: {
             categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
@@ -94,9 +89,6 @@ function chart1() {
             }
         },
         yaxis: {
-            title: {
-                text: "Income"
-            },
             labels: {
                 style: {
                     color: "#9aa0ac"
@@ -119,145 +111,77 @@ function chart1() {
     chart.render();
 }
 
-function chart2() {
-    var options = {
-        chart: {
-            height: 250,
-            type: 'bar',
-            stacked: true,
-            toolbar: {
-                show: false
-            },
-            zoom: {
-                enabled: true
-            }
-        },
-        responsive: [{
-            breakpoint: 480,
-            options: {
-                legend: {
-                    position: 'bottom',
-                    offsetX: -10,
-                    offsetY: 0
-                }
-            }
-        }],
-        plotOptions: {
-            bar: {
-                horizontal: false,
-                columnWidth: '200px',
-            },
-        },
-        series: [{
-            name: 'PRODUCT A',
-            data: [44, 55, 41, 67, 22, 43]
-        }, {
-            name: 'PRODUCT B',
-            data: [13, 23, 20, 8, 13, 27]
-        }, {
-            name: 'PRODUCT C',
-            data: [11, 17, 15, 15, 21, 14]
-        }],
-        xaxis: {
-            type: 'datetime',
-            categories: ['01/01/2019 GMT', '01/02/2019 GMT', '01/03/2019 GMT', '01/04/2019 GMT', '01/05/2019 GMT', '01/06/2019 GMT'],
-            labels: {
-                style: {
-                    colors: "#9aa0ac"
-                }
-            }
-        },
-        yaxis: {
-            labels: {
-                style: {
-                    color: "#9aa0ac"
-                }
-            }
-        },
-        legend: {
-            position: 'top',
-            offsetY: 40,
-            show: false,
-        },
-        fill: {
-            opacity: 1
-        },
-    }
-
-    var chart = new ApexCharts(
-        document.querySelector("#chart2"),
-        options
-    );
-
-    chart.render();
-
-}
 
 function chart3() {
     var options = {
         chart: {
-            height: 250,
+            height: 280,
             type: 'line',
-            zoom: {
-                enabled: false
+            shadow: {
+                enabled: true,
+                color: '#000',
+                top: 18,
+                left: 7,
+                blur: 10,
+                opacity: 1
             },
             toolbar: {
                 show: false
-            },
-
-        },
-        dataLabels: {
-            enabled: false
-        },
-        stroke: {
-            width: [5, 7, 5],
-            curve: 'straight',
-            dashArray: [0, 8, 5]
-        },
-        series: [{
-            name: "Option 1",
-            data: [45, 52, 38, 24, 33, 26, 21, 20]
-        },
-        {
-            name: "Option 2",
-            data: [35, 41, 62, 42, 13, 18, 29, 37]
-        },
-        {
-            name: 'Option 3',
-            data: [87, 57, 74, 99, 75, 38, 62, 47]
-        }
-        ],
-        legend: {
-            show: false,
-        },
-        markers: {
-            size: 0,
-
-            hover: {
-                sizeOffset: 6
             }
         },
+        colors: ['#77B6EA', '#1c426f'],
+        dataLabels: {
+            enabled: true,
+        },
+        stroke: {
+            curve: 'smooth'
+        },
+        series: [{
+            name: "High - 2021",
+            data: [28, 29, 33, 36, 32, 32, 33]
+        },
+        {
+            name: "Low - 2021",
+            data: [12, 11, 14, 18, 17, 13, 13]
+        }
+        ],
+        title: {
+            text: 'Average High & Low Sales',
+            align: 'left'
+        },
+        grid: {
+            borderColor: '#e7e7e7',
+            
+        },
+        markers: {
+
+            size: 6
+        },
         xaxis: {
-            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'July', 'Aug'
-            ],
+            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+            
             labels: {
                 style: {
-                    colors: "#9aa0ac"
+                    colors: '#9aa0ac',
                 }
             }
         },
         yaxis: {
+           
             labels: {
                 style: {
-                    color: "#9aa0ac"
+                    color: '#9aa0ac',
                 }
-            }
+            },
+            min: 5,
+            max: 40
         },
-        tooltip: {
-
-        },
-        grid: {
-            borderColor: '#f1f1f1',
+        legend: {
+            position: 'top',
+            horizontalAlign: 'right',
+            floating: true,
+            offsetY: -25,
+            offsetX: -5
         }
     }
 
@@ -268,61 +192,136 @@ function chart3() {
 
     chart.render();
 }
-function chart4() {
-    var options = {
-        chart: {
-            height: 250,
-            type: 'area',
-            toolbar: {
-                show: false
-            },
 
-        },
-        colors: ['#999b9c', '#4CC2B0'], // line color
-        fill: {
-            colors: ['#999b9c', '#4CC2B0'] // fill color
-        },
-        dataLabels: {
-            enabled: false
-        },
-        stroke: {
-            curve: 'smooth'
-        },
-        markers: {
-            colors: ['#999b9c', '#4CC2B0'] // marker color
-        },
-        series: [{
-            name: 'series1',
-            data: [31, 40, 28, 51, 22, 64, 80]
-        }, {
-            name: 'series2',
-            data: [11, 32, 67, 32, 44, 52, 41]
-        }],
-        legend: {
-            show: false,
-        },
-        xaxis: {
-            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'July'],
-            labels: {
-                style: {
-                    colors: "#9aa0ac"
-                }
-            },
-        },
-        yaxis: {
-            labels: {
-                style: {
-                    color: "#9aa0ac"
-                }
-            }
-        },
-    }
 
-    var chart = new ApexCharts(
-        document.querySelector("#chart4"),
-        options
-    );
+// Start Total Sale This Week Chart Script
+am4core.ready(function() {
 
-    chart.render();
+    // Themes begin
+    am4core.useTheme(am4themes_animated);
+    // Themes end
 
-}
+    // Create chart instance
+    var chart = am4core.create("chartdiv2", am4charts.XYChart);
+
+    // Add data
+    chart.data = [{
+      "country": "15-09-21",
+      "visits": 26025
+    }, {
+      "country": "16-09-21",
+      "visits": 19280
+    }, {
+      "country": "17-09-21",
+      "visits": 17810
+    }, {
+      "country": "18-09-21",
+      "visits": 24120
+    }, {
+      "country": "19-09-21",
+      "visits": 14900
+    }, {
+      "country": "20-09-21",
+      "visits": 17500
+    }, {
+      "country": "21-09-21",
+      "visits": 18950
+    }];
+
+    // Create axes
+
+    var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+    categoryAxis.dataFields.category = "country";
+    categoryAxis.renderer.grid.template.location = 0;
+    categoryAxis.renderer.minGridDistance = 30;
+
+    categoryAxis.renderer.labels.template.adapter.add("dy", function(dy, target) {
+      if (target.dataItem && target.dataItem.index & 2 == 2) {
+        return dy + 25;
+      }
+      return dy;
+    });
+
+    var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+
+    // Create series
+    var series = chart.series.push(new am4charts.ColumnSeries());
+    series.dataFields.valueY = "visits";
+    series.dataFields.categoryX = "country";
+    series.name = "Visits";
+    series.columns.template.tooltipText = "{categoryX}: [bold]{valueY}[/]";
+    series.columns.template.fillOpacity = .8;
+
+    var columnTemplate = series.columns.template;
+    columnTemplate.strokeWidth = 2;
+    columnTemplate.strokeOpacity = 1;
+
+});
+
+// End Total Sale This Week Chart Script
+
+
+
+// Start Total Order This Week Chart Script
+am4core.ready(function() {
+
+    // Themes begin
+    am4core.useTheme(am4themes_animated);
+    // Themes end
+
+    // Create chart instance
+    var chart = am4core.create("chartdiv", am4charts.PieChart);
+
+    // Add data
+    chart.data = [ {
+      "oderWeek": "15-09-21",
+      "orderWeekPer": 7
+    }, {
+      "oderWeek": "16-09-21",
+      "orderWeekPer": 9
+    }, {
+      "oderWeek": "17-09-21",
+      "orderWeekPer": 13
+    }, {
+      "oderWeek": "18-09-21",
+      "orderWeekPer": 15
+    }, {
+      "oderWeek": "19-09-21",
+      "orderWeekPer": 12
+    }, {
+      "oderWeek": "20-09-21",
+      "orderWeekPer": 21
+    }, {
+      "oderWeek": "21-09-21",
+      "orderWeekPer": 24
+    }];
+
+    // Add and configure Series
+    var pieSeries = chart.series.push(new am4charts.PieSeries());
+    pieSeries.dataFields.value = "orderWeekPer";
+    pieSeries.dataFields.category = "oderWeek";
+    pieSeries.labels.template.disabled = true;
+        pieSeries.ticks.template.disabled = true;
+
+    pieSeries.slices.template.stroke = am4core.color("#fff");
+    pieSeries.slices.template.strokeWidth = 2;
+    pieSeries.slices.template.strokeOpacity = 1;
+    pieSeries.labels.template.fill = am4core.color("#9aa0ac");
+
+    // This creates initial animation
+    pieSeries.hiddenState.properties.opacity = 1;
+    pieSeries.hiddenState.properties.endAngle = -90;
+    pieSeries.hiddenState.properties.startAngle = -90;
+
+    chart.legend = new am4charts.Legend();
+    chart.legend.itemContainers.template.paddingTop = 2;
+    chart.legend.itemContainers.template.paddingBottom = 2;
+    chart.legend.position = "left";
+    chart.legend.width = "80";
+    let markerTemplate = chart.legend.markers.template;
+    markerTemplate.width = 15;
+    markerTemplate.height = 15;
+
+});
+
+// End Total Sales This Week Chart Script 

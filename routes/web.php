@@ -27,14 +27,122 @@ Route::get('/home', function () {
 	return redirect('/admin/dashboard');
 });
 
-	Route::group(['namespace' => 'User'], function (){
-		Route::get('users', 'UserController@index')->name('users.index');
-		Route::get('users/create', 'UserController@create')->name('users.create');
-		Route::post('users', 'UserController@store')->name('users.store');
-        Route::get('users/{id}/edit', 'UserController@edit')->name('users.edit');
-        Route::get('users/{id}/view', 'UserController@view')->name('users.view');
-		Route::put('users/{id}', 'UserController@update')->name('users.update');
-		Route::any('users/{id}/destroy', 'UserController@destroy')->name('users.destroy');
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth']], function(){
+
+	Route::get('/', function() {
+		return redirect('/admin/dashboard');
 	});
 
+	Route::group(['namespace' => 'Dashboard'], function() {
+		Route::get('dashboard', 'IndexController@index')->name('dashboard');
+	});
+
+
+
+	Route::group(['namespace' => 'Vendor'], function (){
+		Route::get('vendors', 'VendorController@index')->name('vendors.index');
+		Route::get('vendors/create', 'VendorController@create')->name('vendors.create');
+		Route::post('vendors', 'VendorController@store')->name('vendors.store');
+	    Route::get('vendors/{id}/edit', 'VendorController@edit')->name('vendors.edit');
+	    Route::get('vendors/{id}/view', 'VendorController@view')->name('vendors.view');
+		Route::post('vendors/{id}', 'VendorController@update')->name('vendors.update');
+		Route::any('vendors/{id}/destroy', 'VendorController@destroy')->name('vendors.destroy');
+	});
+
+
+
+	Route::group(['namespace' => 'Admin'], function (){
+		Route::get('admins', 'AdminController@index')->name('admins.index');
+		Route::get('admins/create', 'AdminController@create')->name('admins.create');
+		Route::post('admins', 'AdminController@store')->name('admins.store');
+	    Route::get('admins/{id}/edit', 'AdminController@edit')->name('admins.edit');
+	    Route::get('admins/{id}/view', 'AdminController@view')->name('admins.view');
+		Route::post('admins/{id}', 'AdminController@update')->name('admins.update');
+		Route::any('admins/{id}/destroy', 'AdminController@destroy')->name('admins.destroy');
+	});
+
+
+
+	Route::group(['namespace' => 'Employee'], function (){
+		Route::get('employees', 'EmployeeController@index')->name('employees.index');
+		Route::get('employees/create', 'EmployeeController@create')->name('employees.create');
+		Route::post('employees', 'EmployeeController@store')->name('employees.store');
+	    Route::get('employees/{id}/edit', 'EmployeeController@edit')->name('employees.edit');
+	    Route::get('employees/{id}/view', 'EmployeeController@view')->name('employees.view');
+		Route::post('employees/{id}', 'EmployeeController@update')->name('employees.update');
+		Route::any('employees/{id}/destroy', 'EmployeeController@destroy')->name('employees.destroy');
+	});
+
+
+
+	Route::group(['namespace' => 'Customer'], function (){
+		Route::get('customers', 'CustomerController@index')->name('customers.index');
+		Route::get('customers/create', 'CustomerController@create')->name('customers.create');
+		Route::post('customers', 'CustomerController@store')->name('customers.store');
+	    Route::get('customers/{id}/edit', 'CustomerController@edit')->name('customers.edit');
+	    Route::get('customers/{id}/view', 'CustomerController@view')->name('customers.view');
+		Route::post('customers/{id}', 'CustomerController@update')->name('customers.update');
+		Route::any('customers/{id}/destroy', 'CustomerController@destroy')->name('customers.destroy');
+	});
+
+
+
+	Route::group(['namespace' => 'Product'], function (){
+		Route::get('products', 'ProductController@index')->name('products.index');
+		Route::get('products/create', 'ProductController@create')->name('products.create');
+		Route::post('products', 'ProductController@store')->name('products.store');
+	    Route::get('products/{id}/edit', 'ProductController@edit')->name('products.edit');
+	    Route::get('products/{id}/view', 'ProductController@view')->name('products.view');
+		Route::post('products/{id}', 'ProductController@update')->name('products.update');
+		Route::any('products/{id}/destroy', 'ProductController@destroy')->name('products.destroy');
+	});
+
+
+
+	Route::group(['namespace' => 'FillingStock'], function (){
+		Route::get('fillingStocks', 'FillingStockController@index')->name('fillingStocks.index');
+		Route::get('fillingStocks/create', 'FillingStockController@create')->name('fillingStocks.create');
+		Route::post('fillingStocks', 'FillingStockController@store')->name('fillingStocks.store');
+	    Route::get('fillingStocks/{id}/edit', 'FillingStockController@edit')->name('fillingStocks.edit');
+	    Route::get('fillingStocks/{id}/view', 'FillingStockController@view')->name('fillingStocks.view');
+		Route::post('fillingStocks/{id}', 'FillingStockController@update')->name('fillingStocks.update');
+		Route::any('fillingStocks/{id}/destroy', 'FillingStockController@destroy')->name('fillingStocks.destroy');
+	});
+
+
+
+	Route::group(['namespace' => 'StockInOut'], function (){
+		Route::get('stockInOuts', 'StockInOutController@index')->name('stockInOuts.index');
+		Route::get('stockInOuts/create', 'StockInOutController@create')->name('stockInOuts.create');
+		Route::post('stockInOuts/store', 'StockInOutController@store')->name('stockInOuts.store');
+	    Route::get('stockInOuts/{id}/edit', 'StockInOutController@edit')->name('stockInOuts.edit');
+	    Route::get('stockInOuts/{id}/view', 'StockInOutController@view')->name('stockInOuts.view');
+		Route::post('stockInOuts/{id}', 'StockInOutController@update')->name('stockInOuts.update');
+		Route::any('stockInOuts/{id}/destroy', 'StockInOutController@destroy')->name('stockInOuts.destroy');
+		Route::post('stockInOuts', 'StockInOutController@search')->name('stockSearch');
+	});
+
+
+
+
+	Route::group(['namespace' => 'StockBalance'], function (){
+		Route::get('stockBalances', 'StockBalanceController@index')->name('stockBalances.index');
+	});
+
+
+
+
+	Route::group(['namespace' => 'Investment'], function (){
+		Route::get('investments', 'InvestmentController@index')->name('investments.index');
+		Route::get('investments/create', 'InvestmentController@create')->name('investments.create');
+		Route::post('investments', 'InvestmentController@store')->name('investments.store');
+	    Route::get('investments/{id}/edit', 'InvestmentController@edit')->name('investments.edit');
+	    Route::get('investments/{id}/view', 'InvestmentController@view')->name('investments.view');
+		Route::post('investments/{id}', 'InvestmentController@update')->name('investments.update');
+		Route::any('investments/{id}/destroy', 'InvestmentController@destroy')->name('investments.destroy');
+	});
+
+
+
 });
+

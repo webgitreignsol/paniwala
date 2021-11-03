@@ -1,130 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
+
+
+<!-- auth-login.html  21 Nov 2019 03:49:32 GMT -->
 <head>
-    <title>Login | U-Rida</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->  
-    <link rel="icon" type="image/png" href="{{ asset('public/assets/frontend/logindesign/images/icons/favicon.ico') }}"/>
-<!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('public/assets/frontend/logindesign/vendor/bootstrap/css/bootstrap.min.css') }}">
-<!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('public/assets/frontend/logindesign/fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
-<!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('public/assets/frontend/logindesign/vendor/animate/animate.css') }}">
-<!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('public/assets/frontend/logindesign/vendor/select2/select2.min.css') }}">
-<!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('public/assets/frontend/logindesign/css/util.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('public/assets/frontend/logindesign/css/main.css') }}">
-<!--===============================================================================================-->
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+  <title>Paniwalay | Login</title>
+  <!-- General CSS Files -->
+  <link rel="stylesheet" href=" {{ asset('public/assets/admin/css/app.min.css') }}">
+  <link rel="stylesheet" href=" {{ asset('public/assets/admin/bundles/bootstrap-social/bootstrap-social.css') }}">
+  <!-- Template CSS -->
+  <link rel="stylesheet" href=" {{ asset('public/assets/admin/css/style.css') }}">
+  <link rel="stylesheet" href=" {{ asset('public/assets/admin/css/components.css') }}">
+  <!-- Custom style CSS -->
+  <link rel="stylesheet" href=" {{ asset('public/assets/admin/css/custom.css') }}">
+  <link rel='shortcut icon' type='image/x-icon' href=" {{ asset('public/assets/admin/img/favicon.ico') }} ">
 </head>
-<body>
-    
-    
-    <div class="size1 bg0 where1-parent">
-        <!-- Coutdown -->
-        <div class="flex-c-m bg-img1 size2 where1 overlay1 where2 respon2" style="background-image: url('public/assets/frontend/logindesign/images/wilgo.jpg');"></div>
+
         
-        <!-- Form -->
-        <div class="size3 flex-col-sb flex-w p-l-75 p-r-75 p-t-45 p-b-45 respon1">
-            <div class="wrap-pic1">
-                <span class="m1-txt2">U-Rida</span>
-                <!-- <img src="images/icons/logo.png" alt="LOGO"> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<body>
+  <div id="app">
+    <section class="loginSec">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 backColW">
+            <div class="backImgLogin">
+              <img src="public/assets/admin/img/paniwalay-LogoBig2.png">
             </div>
+          </div>
 
-            <div class="p-t-50 p-b-60">
-                <p class="m1-txt1 p-b-36">
-                    <span class="m1-txt2">Welcome to U-Rida</span>
-                </p>
-
-                     @if($errors->any())
-                        <div class="alert alert-danger">
-                         @foreach ($errors->all() as $error)
-                             <div>{{$error}}</div>
-                         @endforeach
+          <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
+            <div class="row d-flex justify-content-center tpMrg">
+              <div class="col-sm-12 col-md-12 col-lg-5 col-xl-5">
+                <div class="card card-primary mobPiddSet">
+                  <div class="card-header">
+                    <h4>Login</h4>
+                  </div>
+                  @if($errors->any())
+                    <div class="alert alert-danger">
+                     @foreach ($errors->all() as $error)
+                         <div>{{$error}}</div>
+                     @endforeach
+                    </div>
+                  @endif
+                  <div class="card-body productWrap2">
+                    <form method="post" action="{{ route('login') }}" class="contact-form">
+                      @csrf
+                      <div class="input-block">
+                        <label>Email</label>
+                        <input id="email" type="email" class="form-control" name="email" data-validate ="Email is required: ex@abc.xyz">                       
+                      </div>
+                      <div class="input-block">
+                        <label for="password" class="control-label">Password</label>
+                        <input id="password" type="password" class="form-control" name="password" tabindex="2" data-validate = "Password is required">
+                      </div>
+                      <div class="float-right dgnHrf">
+                        <a href="forgot-password.html" class="text-small">Forgot Password?</a>
+                      </div>
+                      <div class="form-group" style="display: inline-block;">
+                        <div class="custom-control custom-checkbox">
+                          <input type="checkbox" name="remember" class="custom-control-input" tabindex="3" id="remember-me">
+                          <label class="custom-control-label" for="remember-me">Remember Me</label>
                         </div>
-                     @endif
+                      </div>
 
-                <form class="contact100-form validate-form" method="POST" action="{{ route('login') }}">
-                   @csrf
-
-                    <div class="wrap-input100 m-b-20 validate-input" data-validate ="Email is required: ex@abc.xyz">
-                        <input class="s2-txt1 placeholder0 input100" type="email" name="email" id="email" placeholder="Email Address">
-                        <span class="focus-input100"></span>
+                      <div class="form-group cleItm">
+                        <button type="submit" class="btn-lg" tabindex="4">Login</button>
+                      </div>
+                    </form>
+                    <div class="text-center mt-4 mb-3">
+                      <div class="text-job text-muted">Login With Social</div>
                     </div>
-
-                    <div class="wrap-input100 m-b-10 validate-input" data-validate = "Password is required">
-                        <input class="s2-txt1 placeholder0 input100" type="password" name="password" id="password" placeholder="Password">
-                        <span class="focus-input100"></span>
+                    <div class="row sm-gutters">
+                      <div class="col-6">
+                        <a class="btn btn-block btn-social btn-facebook">
+                          <span class="fab fa-facebook"></span> Facebook
+                        </a>
+                      </div>
+                      <div class="col-6">
+                        <a class="btn btn-block btn-social btn-twitter">
+                          <span class="fab fa-google"></span> Google
+                        </a>
+                      </div>
                     </div>
-
-                    <div class="w-full">
-                        <button type="submit" class="flex-c-m s2-txt2 size4 bg1 bor1 hov1 trans-04">
-                            Login
-                        </button>
-                    </div>
-                </form>
-
-                <p class="s2-txt3 p-t-18"></p>
+                  </div>
+                </div>
+                <div class="mt-5 text-muted text-center lastRigPagLink">
+                  Don't have an account? <a href="register.html">Create One</a>
+                </div>
+              </div>
             </div>
+          </div>
 
-            <div class="flex-w">
-                <a href="javascript:void(0);" class="flex-c-m size5 bg3 how1 trans-04 m-r-5">
-                    <i class="fa fa-facebook"></i>
-                </a>
-
-                <a href="javascript:void(0);" class="flex-c-m size5 bg4 how1 trans-04 m-r-5">
-                    <i class="fa fa-twitter"></i>
-                </a>
-
-                <a href="javascript:void(0);" class="flex-c-m size5 bg5 how1 trans-04 m-r-5">
-                    <i class="fa fa-youtube-play"></i>
-                </a>
-            </div>
         </div>
-    </div>
+      </div>
+    </section>
+  </div>
 
 
-
-    
-
-<!--===============================================================================================-->  
-    <script src="{{ asset('public/assets/frontend/logindesign/vendor/jquery/jquery-3.2.1.min.js') }}"></script>
-<!--===============================================================================================-->
-    <script src="{{ asset('public/assets/frontend/logindesign/vendor/bootstrap/js/popper.js') }}"></script>
-    <script src="{{ asset('public/assets/frontend/logindesign/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
-<!--===============================================================================================-->
-    <script src="{{ asset('public/assets/frontend/logindesign/vendor/select2/select2.min.js') }}"></script>
-<!--===============================================================================================-->
-    <script src="{{ asset('public/assets/frontend/logindesign/vendor/countdowntime/moment.min.js') }}"></script>
-    <script src="{{ asset('public/assets/frontend/logindesign/vendor/countdowntime/moment-timezone.min.js') }}"></script>
-    <script src="{{ asset('public/assets/frontend/logindesign/vendor/countdowntime/moment-timezone-with-data.min.js') }}"></script>
-    <script src="{{ asset('public/assets/frontend/logindesign/vendor/countdowntime/countdowntime.js') }}"></script>
-    <script>
-        $('.cd100').countdown100({
-            /*Set Endtime here*/
-            /*Endtime must be > current time*/
-            endtimeYear: 0,
-            endtimeMonth: 0,
-            endtimeDate: 35,
-            endtimeHours: 18,
-            endtimeMinutes: 0,
-            endtimeSeconds: 0,
-            timeZone: "" 
-            // ex:  timeZone: "America/New_York"
-            //go to " http://momentjs.com/timezone/ " to get timezone
+  <!-- Start lable active deactive in input script -->
+  <script>
+    //material contact form animation
+    $(".contact-form")
+        .find(".form-control")
+        .each(function () {
+            var targetItem = $(this).parent();
+            if ($(this).val()) {
+                $(targetItem)
+                    .find("label")
+                    .css({
+                        top: "-6px",
+                        fontSize: "12px",
+                        color: "#000"
+                    });
+            }
         });
-    </script>
-<!--===============================================================================================-->
-    <script src="{{ asset('public/assets/frontend/logindesign/vendor/tilt/tilt.jquery.min.js') }}"></script>
-    <script >
-        $('.js-tilt').tilt({
-            scale: 1.1
-        })
-    </script>
-<!--===============================================================================================-->
-    <script src="{{ asset('public/assets/frontend/logindesign/js/main.js') }}"></script>
+    $(".contact-form")
+        .find(".form-control")
+        .focus(function () {
+            $(this)
+                .parent(".input-block")
+                .addClass("focus");
+            $(this)
+                .parent()
+                .find("label")
+                .animate({
+                        top: "-6px",
+                        fontSize: "12px",
+                        color: "#000"
+                    }
+                    , 300
+                );
+        });
+    $(".contact-form")
+        .find(".form-control")
+        .blur(function () {
+            if ($(this).val().length == 0) {
+                $(this)
+                    .parent(".input-block")
+                    .removeClass("focus");
+                $(this)
+                    .parent()
+                    .find("label")
+                    .animate({
+                            top: "20px",
+                            fontSize: "16px"
+                        }
+                        , 300
+                    );
+            }
+        });
+  </script>
+  <!-- End lable active deactive in input script -->
+
+
+  <!-- General JS Scripts -->
+  <script src="public/assets/js/app.min.js"></script>
+  <script src="public/assets/js/scripts.js"></script>
+  <script src="public/assets/js/custom.js"></script>
 
 </body>
 </html>

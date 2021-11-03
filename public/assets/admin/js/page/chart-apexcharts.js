@@ -422,10 +422,18 @@ function chart5() {
 
     chart.render();
 }
+
+
+
+
+
+
+
+
 function chart6() {
     var options = {
         chart: {
-            height: 350,
+            height: 200,
             type: 'area',
         },
         dataLabels: {
@@ -435,33 +443,29 @@ function chart6() {
             curve: 'smooth'
         },
         series: [{
-            name: 'series1',
-            data: [31, 40, 28, 51, 42, 109, 100]
-        }, {
-            name: 'series2',
-            data: [11, 32, 45, 32, 34, 52, 41]
+            name: 'Uploads',
+            data: [31, 40, 28, 51, 42, 109, 100, 112]
         }],
 
         xaxis: {
             type: 'datetime',
-            categories: ["2018-09-19T00:00:00", "2018-09-19T01:30:00", "2018-09-19T02:30:00", "2018-09-19T03:30:00", "2018-09-19T04:30:00", "2018-09-19T05:30:00", "2018-09-19T06:30:00"],
+            categories: ["2021-06-05", "2021-06-08", "2021-06-12", "2021-06-14", "2021-06-16", "2021-06-17", "2021-06-18", "2021-06-19"],
             labels: {
                 style: {
-                    colors: '#9aa0ac',
+                    colors: '#F2644F',
                 }
             }
         },
-        yaxis: {
-            labels: {
-                style: {
-                    color: '#9aa0ac',
-                }
-            }
-
-        },
+        // yaxis: {
+        //     labels: {
+        //         style: {
+        //             color: '#F2644F',
+        //         }
+        //     }
+        // },
         tooltip: {
             x: {
-                format: 'dd/MM/yy HH:mm'
+                format: 'dd/MM/yy'
             },
         }
     }
@@ -473,6 +477,11 @@ function chart6() {
 
     chart.render();
 }
+
+
+
+
+
 function chart7() {
     var options = {
         chart: {
@@ -501,6 +510,24 @@ function chart7() {
 
     chart.render();
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function chart8() {
 
     var options = {
