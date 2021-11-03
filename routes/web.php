@@ -144,5 +144,25 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
 
 
 
+
+	Route::group(['namespace' => 'Expenditure'], function (){
+		Route::get('expenditures', 'ExpenditureController@index')->name('expenditures.index');
+		Route::get('expenditures/create', 'ExpenditureController@create')->name('expenditures.create');
+		Route::post('expenditures', 'ExpenditureController@store')->name('expenditures.store');
+	    Route::get('expenditures/{id}/edit', 'ExpenditureController@edit')->name('expenditures.edit');
+	    Route::get('expenditures/{id}/view', 'ExpenditureController@view')->name('expenditures.view');
+		Route::post('expenditures/{id}', 'ExpenditureController@update')->name('expenditures.update');
+		Route::any('expenditures/{id}/destroy', 'ExpenditureController@destroy')->name('expenditures.destroy');
+	});
+
+
+
+
+	Route::group(['namespace' => 'AreaAssign'], function (){
+		Route::get('areaAssigns', 'AreaAssignEmployeeController@index')->name('areaAssigns.index');
+	});
+
+
+
 });
 

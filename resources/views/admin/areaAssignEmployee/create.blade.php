@@ -1,7 +1,7 @@
 @extends('admin.layout.master')
 
 @section('page-title')
-Add Investment
+Add Expenditure
 @endsection()
 
 @section('content')
@@ -12,7 +12,7 @@ Add Investment
     <section class="section">
     	<div class="row">
     		<div class="col-6">
-	        	<h5>Add Investment</h5>
+	        	<h5>Add Expenditure</h5>
     		</div>
     		<div class="col-6">
     			<div class="headingArea">
@@ -24,10 +24,10 @@ Add Investment
     	<div class="container">
     	   	<div class="row">
 	            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-	            	<h2>Create Investment</h2>
+	            	<h2>Create Expenditure</h2>
 		        	<div class="productWrap stockWrap minInput">
 						<div class="card-body">							
-							<form class="contact-form" method="post" action="{{ route('investments.store') }}">
+							<form class="contact-form" method="post" action="{{ route('expenditures.store') }}">
 								@csrf
 								<div class="card-body">
 									<div class="row">
@@ -39,21 +39,21 @@ Add Investment
 										</div>
 										<div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
 											<div class="input-block">
-									    		<label>Investment Name</label>
-									    		<input type="text" name="name" class="form-control" value="{{ old('name') }}" required="">
+									    		<label>Expenditure Name</label>
+									    		<input type="text" name="head_name" class="form-control" value="{{ old('head_name') }}" required="">
 									  		</div>
 										</div>
 									</div>									
 									<div class="row">										
 										<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
 											<div class="input-block">
-									    		<label>Investment Amount</label>
+									    		<label>Expenditure Amount</label>
 									    		<input type="text" name="amount" class="form-control" value="{{ old('amount') }}" required="">
 									  		</div>												
 										</div>
 										<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
 											<div class="input-block2">
-									    		<textarea name="detail" class="form-control2" placeholder="Invesment Detail">{{ old('detail') }}</textarea>
+									    		<textarea name="description" class="form-control2" placeholder="Invesment Detail">{{ old('description') }}</textarea>
 									  		</div>
 										</div>
 									</div>	
@@ -68,7 +68,7 @@ Add Investment
 										<div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
 											<form action="" method="">
 												<div class="btnArea2">
-											  		<a href="{{ route('investments.index') }}">Cancel</a>
+											  		<a href="{{ route('expenditures.index') }}">Cancel</a>
 												</div>
 											</form>
 										</div>

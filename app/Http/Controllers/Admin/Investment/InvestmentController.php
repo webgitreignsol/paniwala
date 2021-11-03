@@ -13,6 +13,7 @@ use Auth;
 
 class InvestmentController extends Controller
 {
+    
     public function index(Request $request)
     {
     	$investments = Investment::orderBy('id', 'desc')->get();

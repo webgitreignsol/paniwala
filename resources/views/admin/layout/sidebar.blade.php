@@ -68,12 +68,12 @@
 		            </ul>
 	            </li>
 
-	            <li class="dropdown {{ Request::is('admin/employees') ? 'active' : '' }}">
+	            <li class="dropdown {{ Request::is('admin/employees', 'admin/areaAssigns') ? 'active' : '' }}">
 	            	<a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="users"></i><span>Employee</span></a>
 		            <ul class="dropdown-menu">
 		                <li><a class="nav-link {{ Request::is('admin/employees') ? 'active' : '' }}" href="{{ route('employees.index') }}">Employees</a></li>
 		                <hr class="linBttm">
-		                <li><a class="nav-link" href="#">Area Assign To Employee</a></li>					                
+		                <li><a class="nav-link {{ Request::is('admin/areaAssigns') ? 'active' : '' }}" href="{{ route('areaAssigns.index') }}">Area Assign To Employee</a></li>					                
 		            </ul>
 	            </li>
 	            <li class="dropdown">
@@ -90,23 +90,24 @@
 		                <li><a class="nav-link" href="#">Product Wise Sales Report</a></li>
 		            </ul>
 	            </li>
-	            <li class="dropdown  {{ Request::is('admin/investments') ? 'active' : '' }}">
+	            <li class="dropdown  {{ Request::is('admin/investments', 'admin/expenditures') ? 'active' : '' }}">
 	            	<a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="activity"></i><span>Expenditure</span></a>
 		            <ul class="dropdown-menu">
-		                <li><a class="nav-link" href="#">Expenditure</a></li>
+		                <li><a class="nav-link {{ Request::is('admin/expenditures') ? 'active' : '' }}" href="{{ route('expenditures.index') }}">Expenditure</a></li>
 		                <hr class="linBttm">
-		                <li><a class="nav-link  {{ Request::is('admin/investments') ? 'active' : '' }}" href="{{ route('investments.index') }}">Investment</a></li>
+		                <li><a class="nav-link {{ Request::is('admin/investments') ? 'active' : '' }}" href="{{ route('investments.index') }}">Investment</a></li>
 		            </ul>
 	            </li>
 	            <li class="dropdown">
 	            	<a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="framer"></i><span>Transaction</span></a>
 	            </li>
 	            <li class="dropdown">
-	            	<a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="settings"></i><span>Setting</span></a>
+	            	<a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="settings"></i><span>Settings</span></a>
 	            </li>
 	            <li class="dropdown">
-	            	<a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="power"></i><span>Logout</span></a>
+	            	<a href="{{ route('logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="menu-toggle nav-link has-dropdown"><i data-feather="power"></i><span>Logout</span></a>
 	            </li>
+	            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;"> @csrf </form>
           	</ul>
         </aside>
     </div>
