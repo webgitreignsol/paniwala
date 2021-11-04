@@ -1,21 +1,17 @@
 @extends('admin.layout.master')
 
 @section('page-title')
-Customer Details
+Area Assign Employees
 @endsection()
 
 @section('content')
-
-<style>
-	.dpyin{border:1px solid #999; padding: 3px 10px; border-radius: 12px 0px 12px 0px; margin-bottom: 5px; display: inline-block;}
-</style>
 
 	<!-- Main Content -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>  
     <section class="section">
     	<div class="row">
     		<div class="col-6">
-	        	<h5>Customer Details</h5>
+	        	<h5>Area Assign Employees</h5>
     		</div>
     		<div class="col-6">
     			<div class="headingArea">
@@ -26,56 +22,38 @@ Customer Details
 
     	<div class="row">
             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-            	<div class="stockWrapCont">			            		
-        			<div class="addedButtn">
-    					<a href="{{ route('customers.create') }}">Add Customer</a>
-    				</div> 
-            		<div class="table-responsive tableContain">
+            	<div class="stockWrapCont">
+					<div class="addedButtn">
+						<a href="{{ route('areaAssigns.create') }}">Assign Area</a>
+					</div>
+					<div class="table-responsive tableContain">
 						<table id="table-1" class="table table-bordered table-hover advanced-web-table" style="width: 100%; table-layout: fixed;">
 					  		<thead class="thead-dark">
 							    <tr>
-								    <th scope="col">S.No</th>
-								    <th scope="col">Date</th>
-								    <th scope="col">Customer Name</th>
-								    <th scope="col">Address</th>
-								    <th scope="col">Mobile</th>
-								    <th scope="col">Area</th>
-								    <th scope="col">Days</th>
-								    <th scope="col">Vendor</th>
-								    <th scope="col">Status</th>
-								    <th scope="col">Action</th>
+								    <th scope="col" style="width: 40px">S.No</th>
+								    <th scope="col">Area Name</th>
+								    <th scope="col">Employee</th>
+								    <th scope="col">Actions</th>
 							    </tr>
 							</thead>
 					  		<tbody>
 
-					  			@foreach($customers as $key => $customer)
+					  			@foreach($areaAssignEmployees as $key => $customer)
 							    <tr>
 									<th>{{ $key+1 }}</th>
-									<td>{{ $customer->date }}</td>
-									<td>{{ $customer->name }}</td>
-									<td>{{ $customer->address }}</td>
-									<td>{{ $customer->phone }}</td>
 									<td>{{ $customer->area }}</td>
-									<td>
-										<?php $value = explode(",", $customer->days) ?>
-										<?php for($i =0; $i < count($value); $i++) { ?>
-										  	<span class="dpyin">{{ $value[$i] }}</span>
-										<?php } ?>
-										 
-									</td>							
-									<td>{{ $customer->vendor->name }}</td>
-									<td>{{ $customer->status }}</td>
-									<td>
-										<a href="{{ route('customers.edit', $customer->id) }}" style="color: green"><i class="far fa-edit"></i></a>
+									<td>{{ $customer->employee->first_name }}</td>
+									<td><a href="{{ route('areaAssigns.edit', $customer->id) }}" style="color: green"><i class="far fa-edit"></i></a>
 										&nbsp;
-										<a href="{{ route('customers.destroy', $customer->id) }}" onclick="return confirm('Are You Sure You Want to Delete this Customer!'); " style="color: red"><i class="far fa-trash-alt"></i></a>
-									</td>
+										<a href="{{ route('areaAssigns.destroy', $customer->id) }}" onclick="return confirm('Are You Sure You Want to Delete this Assign Area!'); " style="color: red"><i class="far fa-trash-alt"></i></a></td>
 							    </tr>
 							    @endforeach
 					  		</tbody>
 						</table>
+
 					</div>
-            	</div>	
+            	</div>
+            	
             </div>
         </div>
 

@@ -1,58 +1,84 @@
 @extends('admin.layout.master')
 
 @section('page-title')
-Area Assign Employees
+Add Expenditure
 @endsection()
 
 @section('content')
 
 	<!-- Main Content -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>  
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/jquery.inputmask.bundle.js"></script>  
     <section class="section">
     	<div class="row">
     		<div class="col-6">
-	        	<h5>Area Assign Employees</h5>
+	        	<h5>Add Expenditure</h5>
     		</div>
     		<div class="col-6">
     			<div class="headingArea">
 		        	<img src="{{ asset('public/assets/admin/img/wall-6.webp') }}">
 		        </div>
     		</div>
-        </div>
+    	</div>
 
-    	<div class="row">
-            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-            	<div class="stockWrapCont">
-            		<div class="table-responsive tableContain">
-						<table id="table-1" class="table table-bordered table-hover advanced-web-table" style="width: 100%; table-layout: fixed;">
-					  		<thead class="thead-dark">
-							    <tr>
-								    <th scope="col" style="width: 40px">S.No</th>
-								    <th scope="col">Area Name</th>
-								    <th scope="col">Employee</th>
-								    <th scope="col">Customer Name</th>
-							    </tr>
-							</thead>
-					  		<tbody>
-
-					  			@foreach($customers as $key => $customer)
-							    <tr>
-									<th>{{ $key+1 }}</th>
-									<td>{{ $customer->area }}</td>
-									<td>{{ $customer->employee->first_name }}</td>
-									<td>{{ $customer->name }}</td>
-							    </tr>
-							    @endforeach
-					  		</tbody>
-						</table>
-
+    	<div class="container">
+    	   	<div class="row">
+	            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+	            	<h2>Create Assign Area</h2>
+		        	<div class="productWrap stockWrap minInput">
+						<div class="card-body">							
+							<form class="contact-form" method="post" action="{{ route('areaAssigns.store') }}">
+								@csrf
+								<div class="card-body">
+									<div class="row">
+										<div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
+											<div class="input-block">
+												<label>Select Employee</label>
+												<select class="form-control" name="employee_id" required="">
+													<option value="" selected="false" disabled="disabled" value="{{ old('employee_id') }}"></option>
+													@foreach($employees as $employee)
+														<option value="{{ $employee->id }}" >{{ $employee->first_name }} {{ $employee->last_name }}</option>
+													@endforeach
+												</select>
+											</div>
+										</div>
+											<div class="col-sm-12 col-md-12 col-xl-6 bttQty">
+												<div class="input-block">
+													<label>Area</label>
+													<input type="text" name="area" value="{{ old('area') }}" class="form-control">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
+											<div class="btnArea mbspr">
+										  		<button type="submit" >Save</button>
+											</div>
+										</div>
+										
+										<div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
+											<form action="" method="">
+												<div class="btnArea2">
+											  		<a href="{{ route('areaAssigns.index') }}">Cancel</a>
+												</div>
+											</form>
+										</div>
+									</div>									
+								</div>
+							</form>								
+						</div>
 					</div>
-            	</div>
-            	
-            </div>
-        </div>
-
+	            </div>
+	        </div>
+	    </div>
     </section>
+
+    <!-- Start mobile number and CNIC input format Script -->
+	<script>
+		$(":input").inputmask();
+	</script>
+	<!-- End mobile number and CNIC input format Script -->
 
 	<!-- Start lable active deactive in input script -->
 	<script>

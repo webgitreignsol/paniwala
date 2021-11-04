@@ -19,7 +19,11 @@ class VendorController extends Controller
      */
     public function index(Request $request)
     {
-        $vendors = User::where('type', 'vendor')->orderBy('id', 'desc')->get();
+        if (auth::user()->type == 'vendor') {
+            $vendors = User::where('id', auth::user()->id)->orderBy('id', 'desc')->get();
+        }else{
+            $vendors = User::where('type', 'vendor')->orderBy('id', 'desc')->get();
+        }
         return view('admin.vendors.index',compact('vendors'));
     }
     
@@ -50,6 +54,7 @@ class VendorController extends Controller
         $input = $request->all();
         $input['password'] = Hash::make($input['password']);
         $input['added_by'] = Auth::user()->id;
+        $input['vendor_token'] = mt_rand(1000000000, 9999999999);
         $input['type'] = 'vendor';
         $input['email_verified_at'] = date('Y-m-d H:i:s');
     
@@ -67,7 +72,6 @@ class VendorController extends Controller
      */
     public function edit($id)
     {
-    
         $vendor = User::find($id);
         return view('admin.vendors.edit',compact('vendor'));
     }

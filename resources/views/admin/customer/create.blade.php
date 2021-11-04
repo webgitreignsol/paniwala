@@ -102,18 +102,6 @@ Add Customer
 												  		</div>
 													</div>
 
-													<div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
-														<div class="input-block">
-												    		<label>Select Employee</label>
-									                    	<select class="form-control" name="employee_id" required="">
-									                        	<option value="" selected="false" disabled="disabled" value="{{ old('employee_id') }}"></option>
-									                        	@foreach($employees as $employee)
-									                        	<option value="{{ $employee->id }}" >{{ $employee->first_name }} {{ $employee->last_name }}</option>
-									                        	@endforeach					                        	
-									                    	</select>
-												  		</div>
-													</div>
-
 												</div>
 
 

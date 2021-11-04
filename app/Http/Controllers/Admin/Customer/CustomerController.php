@@ -16,15 +16,15 @@ class CustomerController extends Controller
 {
     public function index(Request $request)
     {
-    	$customers = Customer::orderBy('id', 'desc')->get();
+    	$customers = Customer::where('vendor_id',Auth::user()->id)->orderBy('id', 'desc')->get();
     	return view('admin.customer.index', compact('customers'));
     }
 
 
     public function create()
     {
-    	$employees = Employee::get();
-    	return view('admin.customer.create', compact('employees'));
+        $employees = Employee::get();
+        return view('admin.customer.create', compact('employees'));
     }
 
 
@@ -51,16 +51,13 @@ class CustomerController extends Controller
         $record->address = $request->address;
         $record->phone = $request->phone;
         $record->area = $request->area;
-        $record->employee_id = $request->employee_id;
-        $record->days = implode(',' ,  $request->days) ;
-        // dd($record->days);
+        $record->vendor_id = Auth::user()->id;
+        $record->days = implode(',' ,  $request->days);
         $record->required_bottle = $request->required_bottle;
         $record->opening_bottle = $request->opening_bottle;
         $record->opening_balance = $request->opening_balance;
         $record->remarks = $request->remarks;
         $record->status = $request->status;
-
-   	
     	$record->save();
 
         // $record = Customer::create($record);

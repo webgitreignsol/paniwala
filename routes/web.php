@@ -160,6 +160,12 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
 
 	Route::group(['namespace' => 'AreaAssign'], function (){
 		Route::get('areaAssigns', 'AreaAssignEmployeeController@index')->name('areaAssigns.index');
+        Route::get('areaAssigns/create', 'AreaAssignEmployeeController@create')->name('areaAssigns.create');
+        Route::post('areaAssigns/store', 'AreaAssignEmployeeController@store')->name('areaAssigns.store');
+        Route::get('areaAssigns/{id}/edit', 'AreaAssignEmployeeController@edit')->name('areaAssigns.edit');
+        Route::get('areaAssigns/{id}/view', 'AreaAssignEmployeeController@view')->name('areaAssigns.view');
+        Route::post('areaAssigns/{id}', 'AreaAssignEmployeeController@update')->name('areaAssigns.update');
+        Route::any('areaAssigns/{id}/destroy', 'AreaAssignEmployeeController@destroy')->name('areaAssigns.destroy');
 	});
 
 

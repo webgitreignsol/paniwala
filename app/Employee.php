@@ -17,5 +17,10 @@ class Employee extends Model
     protected static $logName = 'Employee';
     protected static $logOnlyDirty = true;
 
+    public function vendor()
+    {
+        return $this->belongsTo('App\User', 'vendor_id');
+    }
+
 
 }

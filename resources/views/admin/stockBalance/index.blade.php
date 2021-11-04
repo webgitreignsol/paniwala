@@ -37,7 +37,6 @@ Check Stock Balance
 								    <th scope="col" style="width: 150px">Total Stock in Warehouse</th>
 								    <th scope="col" style="width: 150px">Total Damage Stock</th>
 								    <th scope="col" style="width: 150px">Total Stock In Market</th>
-								    
 							    </tr>
 							</thead>
 					  		<tbody>

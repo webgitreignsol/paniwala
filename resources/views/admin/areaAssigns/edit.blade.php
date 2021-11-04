@@ -24,40 +24,33 @@ Add Expenditure
     	<div class="container">
     	   	<div class="row">
 	            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-	            	<h2>Create Expenditure</h2>
+	            	<h2>Update Assign Area</h2>
 		        	<div class="productWrap stockWrap minInput">
 						<div class="card-body">							
-							<form class="contact-form" method="post" action="{{ route('expenditures.store') }}">
+							<form class="contact-form" method="post" action="{{ route('areaAssigns.update', $areaAssignEmployee->id) }}">
 								@csrf
 								<div class="card-body">
 									<div class="row">
 										<div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
 											<div class="input-block">
-									    		<label>Date</label>
-									    		<input name="date" value="{{ old('date') }}" type="text" class="form-control" required="" onfocus="(this.type='date')" onblur="if(!this.value)this.type='text'">
-									  		</div>																						
+												<label>Select Employee</label>
+												<select class="form-control" name="employee_id" required="">
+													<option value="" selected="false" disabled="disabled"></option>
+													@foreach($employees as $employee)
+														<option value="{{ $employee->id }}" {{ $areaAssignEmployee->employee_id == $employee->id ? 'selected="selected"' : '' }} >{{ $employee->first_name }} {{ $employee->last_name }}</option>
+													@endforeach
+												</select>
+											</div>
 										</div>
-										<div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
-											<div class="input-block">
-									    		<label>Expenditure Name</label>
-									    		<input type="text" name="head_name" class="form-control" value="{{ old('head_name') }}" required="">
-									  		</div>
-										</div>
-									</div>									
-									<div class="row">										
-										<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-											<div class="input-block">
-									    		<label>Expenditure Amount</label>
-									    		<input type="text" name="amount" class="form-control" value="{{ old('amount') }}" required="">
-									  		</div>												
-										</div>
-										<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-											<div class="input-block2">
-									    		<textarea name="description" class="form-control2" placeholder="Invesment Detail">{{ old('description') }}</textarea>
-									  		</div>
-										</div>
-									</div>	
 
+											<div class="col-sm-12 col-md-12 col-xl-6 bttQty">
+												<div class="input-block">
+													<label>Area</label>
+													<input type="text" name="area" value="{{ $areaAssignEmployee->area }}" class="form-control">
+												</div>
+											</div>
+										</div>
+									</div>
 									<div class="row">
 										<div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
 											<div class="btnArea mbspr">
@@ -68,7 +61,7 @@ Add Expenditure
 										<div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
 											<form action="" method="">
 												<div class="btnArea2">
-											  		<a href="{{ route('expenditures.index') }}">Cancel</a>
+											  		<a href="{{ route('areaAssigns.index') }}">Cancel</a>
 												</div>
 											</form>
 										</div>

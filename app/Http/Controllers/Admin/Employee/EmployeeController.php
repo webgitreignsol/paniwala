@@ -42,6 +42,7 @@ class EmployeeController extends Controller
         ]);
     
         $input = $request->all();
+        $input['vendor_id'] = Auth::user()->id;
         $input['password'] = Hash::make($input['password']);
         $input['email_verified_at'] = date('Y-m-d H:i:s');
     
@@ -81,7 +82,7 @@ class EmployeeController extends Controller
             $input['password'] = $employee->password;   
         }
 
-        $input['updated_by'] = Auth::user()->id;
+        $input['vendor_id'] = Auth::user()->id;
     
         $employee->update($input);
 
