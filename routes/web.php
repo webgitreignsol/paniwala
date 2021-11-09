@@ -47,6 +47,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
 	    Route::get('vendors/{id}/view', 'VendorController@view')->name('vendors.view');
 		Route::post('vendors/{id}', 'VendorController@update')->name('vendors.update');
 		Route::any('vendors/{id}/destroy', 'VendorController@destroy')->name('vendors.destroy');
+
+        Route::get('vendors/profile', 'vendorcontroller@profile')->name('vendors.profile');
 	});
 
 
@@ -59,6 +61,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
 	    Route::get('admins/{id}/view', 'AdminController@view')->name('admins.view');
 		Route::post('admins/{id}', 'AdminController@update')->name('admins.update');
 		Route::any('admins/{id}/destroy', 'AdminController@destroy')->name('admins.destroy');
+        Route::get('admins/profile', 'admincontroller@profile')->name('admins.profile');
 	});
 
 
