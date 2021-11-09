@@ -8,8 +8,8 @@
   	<link rel="stylesheet" href="{{ asset('public/assets/admin/css/app.min.css') }}">
   	<link rel="stylesheet" href="{{ asset('public/assets/admin/css/style.css') }}">
 
-	<link rel="stylesheet" href=" {{ '/public/assets/admin/bundles/select2/dist/css/select2.min.css' }}">
-	<link rel="stylesheet" href="{{ '/public/assets/admin/bundles/jquery-selectric/selectric.css'}} ">
+	<link rel="stylesheet" href=" {{ asset('/public/assets/admin/bundles/select2/dist/css/select2.min.css') }}">
+	<link rel="stylesheet" href="{{ asset('/public/assets/admin/bundles/jquery-selectric/selectric.css')}} ">
 
   	<link rel="stylesheet" href="{{ asset('public/assets/admin/css/components.css') }}">
   	<link rel="stylesheet" href="{{ asset('public/assets/admin/css/custom.css') }}">
@@ -110,6 +110,7 @@
 			}
 		},60);
 	</script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWXcC4fpvDCMaOuffxDDJPPBTDSngHMAc&libraries=places"></script>
 
 	<script src="{{ asset('public/assets/admin/bundles/datatables/datatables.min.js') }}"></script>
 	<script src="{{ asset('public/assets/admin/bundles/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js') }}"></script>
@@ -129,15 +130,16 @@
 
 	<!--End loader script -->
 	<script src="{{ asset('public/assets/admin/js/charts/core.js') }}"></script>
+	<script src="{{ asset('public/assets/admin/js/axios.min.js') }}"></script>
 	<script src="{{ asset('public/assets/admin/js/charts/charts.js') }}"></script>
 	<script src="{{ asset('public/assets/admin/js/charts/animated.js') }}"></script>
 	<script src="{{ asset('public/assets/admin/js/app.min.js') }}"></script>
 	<script src="{{ asset('public/assets/admin/bundles/apexcharts/apexcharts.min.js') }}"></script>
 	<script src="{{ asset('public/assets/admin/js/page/index.js') }}"></script>
 
-	<script src=" {{'/public/assets/admin/bundles/select2/dist/js/select2.full.min.js'}} "></script>
-	<script src="{{'/public/assets/admin/bundles/jquery-selectric/jquery.selectric.min.js'}}"></script>
-	<script src=" {{'/public/assets/admin/js/page/forms-advanced-forms.js'}} "></script>
+	<script src=" {{asset('/public/assets/admin/bundles/select2/dist/js/select2.full.min.js')}} "></script>
+	<script src="{{ asset('/public/assets/admin/bundles/jquery-selectric/jquery.selectric.min.js')}}"></script>
+	<script src=" {{ asset('/public/assets/admin/js/page/forms-advanced-forms.js')}} "></script>
 
 
 	<script src="{{ asset('public/assets/admin/js/scripts.js') }}"></script>

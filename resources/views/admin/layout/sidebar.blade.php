@@ -14,6 +14,10 @@
 	            	<a href="{{ route('admins.index') }}" class="nav-link"><i data-feather="user-plus"></i><span>Admin</span></a>
 	            </li>
 
+				<li class="dropdown {{ Request::is('admin/order') ? 'active' : '' }}">
+					<a href="{{ route('order.index') }}" class="nav-link"><i data-feather="circle"></i><span>Orders</span></a>
+				</li>
+
 
 	            <li class="dropdown {{ Request::is('admin/products', 'admin/fillingStocks', 'admin/stockInOuts', 'admin/stockBalances') ? 'active' : '' }}">
 	            	<a href="javascript:void();" class="menu-toggle nav-link has-dropdown"><i data-feather="box"></i><span>Products</span></a>

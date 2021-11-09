@@ -168,6 +168,17 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
         Route::any('areaAssigns/{id}/destroy', 'AreaAssignEmployeeController@destroy')->name('areaAssigns.destroy');
 	});
 
+    Route::group(['namespace' => 'Order'], function (){
+        Route::get('order', 'OrderController@index')->name('order.index');
+        Route::get('order/create', 'OrderController@create')->name('order.create');
+        Route::post('order/store', 'OrderController@store')->name('order.store');
+        Route::get('order/{id}/edit', 'OrderController@edit')->name('order.edit');
+        Route::get('order/{id}/view', 'OrderController@view')->name('order.view');
+        Route::post('order/updatestatus/{id}', 'OrderController@updateStatus')->name('updateStatus');
+        Route::post('order/{id}', 'OrderController@update')->name('order.update');
+        Route::any('order/{id}/destroy', 'OrderController@destroy')->name('order.destroy');
+    });
+
 
 
 });

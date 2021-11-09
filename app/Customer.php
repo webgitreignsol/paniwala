@@ -8,12 +8,12 @@ use Spatie\Activitylog\Traits\LogsActivity;
 class Customer extends Model
 {
     protected $fillable = [
-    	'date', 'name', 'email', 'password', 'security_deposit', 'address', 'phone', 'area', 'days', 'required_bottle', 'opening_bottle', 'opening_balance', 'remarks', 'status','vendor_id'
+    	'date', 'name', 'email', 'password', 'address', 'phone', 'status','vendor_id'
     ];
 
     protected $table = 'customer';
 
-    protected static $logAttributes = ['date', 'name', 'email', 'password', 'security_deposit', 'address', 'phone', 'area', 'days', 'required_bottle', 'opening_bottle', 'opening_balance', 'remarks','vendor_id', 'status'];
+    protected static $logAttributes = ['date', 'name', 'email', 'password', 'address', 'phone', 'status','vendor_id'];
     protected static $logName = 'Customer';
     protected static $logOnlyDirty = true;
 

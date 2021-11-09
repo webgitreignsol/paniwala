@@ -62,46 +62,6 @@ Add Customer
 												    		<input type="text" name="address" value="{{ old('address') }}" class="form-control">
 												  		</div>
 													</div>
-												</div>								
-
-												<div class="row">
-													<div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
-														<div class="input-block amtSecurity">
-												    		<label>Security Deposit Amount</label>
-												    		<input type="number" name="security_deposit" value="{{ old('security_deposit')}}" class="form-control">
-												  		</div>
-													</div>
-													<div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
-														<div class="input-block">
-												    		<label>Remarks</label>
-												    		<input type="text" name="remarks" value="{{ old('remarks') }}" class="form-control" name="">
-												  		</div>
-													</div>
-												</div>
-
-												<div class="row">
-													<div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
-														<div class="input-block">
-												    		<label class="opnBal">Area</label>
-												    		<input type="text" name="area" value="{{ old('area') }}" class="form-control" name="area">
-												  		</div>
-													</div>
-
-											  		<div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
-														<div class="input-block">
-												    		<label>Opening Bottle</label>
-												    		<input type="number" name="opening_bottle" value="{{ old('opening_bottle') }}" min="0" class="form-control" name="">
-												  		</div>
-													</div>
-												</div>
-												<div class="row">
-													<div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
-														<div class="input-block">
-												    		<label class="opnBal">Opening Balance</label>
-												    		<input type="number" name="opening_balance" value="{{ old('opening_balance') }}" min="0" class="form-control" name="">
-												  		</div>
-													</div>
-
 												</div>
 
 
@@ -145,30 +105,6 @@ Add Customer
 														<div class="passShow">
 												    		<input type="checkbox" onclick="myFunctionPassword()">
 												    		<p>Show Password</p>
-												  		</div>
-													</div>
-												</div>
-
-												<div class="row">
-													<div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
-														<div class="input-block">
-								            				<label>Required Bottle Qty for Order Delivery</label>
-												    		<input type="number" name="required_bottle" value="{{ old('required_bottle') }}" class="form-control" name="bottle-count" min="0">
-												  		</div>
-													</div>
-													<div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
-														<div class="input-block mtrd">
-												    		<label>Select Delivery Days</label>
-									                    	<select class="form-control selectric" name="days[]" multiple="">
-									                        	<option value="" selected="false" disabled="disabled"></option>
-									                        	<option value="Mon">Monday</option>
-									                        	<option value="Tue">Tuesday</option>
-									                        	<option value="Wed">Wednesday</option>
-									                        	<option value="Thu">Thursday</option>
-									                        	<option value="Fri">Friday</option>
-									                        	<option value="Sat">Saturday</option>
-									                        	<option value="Sun">Sunday</option>
-									                    	</select>
 												  		</div>
 													</div>
 												</div>

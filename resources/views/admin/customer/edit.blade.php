@@ -61,46 +61,6 @@ Edit Customer
 												    		<input type="text" name="address" value="{{ $customer->address }}" class="form-control">
 												  		</div>
 													</div>
-												</div>								
-
-												<div class="row">
-													<div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
-														<div class="input-block amtSecurity">
-												    		<label>Security Deposit Amount</label>
-												    		<input type="number" name="security_deposit" value="{{ $customer->security_deposit }}" class="form-control">
-												  		</div>
-													</div>
-													<div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
-														<div class="input-block">
-												    		<label>Remarks</label>
-												    		<input type="text" name="remarks" value="{{ $customer->remarks }}" class="form-control" name="">
-												  		</div>
-													</div>
-												</div>
-
-												<div class="row">
-													<div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
-														<div class="input-block">
-												    		<label class="opnBal">Area</label>
-												    		<input type="text" name="area" value="{{ $customer->area }}" class="form-control" name="area">
-												  		</div>
-													</div>
-
-											  		<div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
-														<div class="input-block">
-												    		<label>Opening Bottle</label>
-												    		<input type="number" name="opening_bottle" value="{{ $customer->opening_bottle }}" min="0" class="form-control" name="">
-												  		</div>
-													</div>
-												</div>
-												<div class="row">
-													<div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
-														<div class="input-block">
-												    		<label class="opnBal">Opening Balance</label>
-												    		<input type="number" name="opening_balance" value="{{ $customer->opening_balance }}" min="0" class="form-control" name="">
-												  		</div>
-													</div>
-
 												</div>
 
 
@@ -147,31 +107,6 @@ Edit Customer
 												  		</div>
 													</div>
 												</div>
-
-												<div class="row">
-													<div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
-														<div class="input-block">
-								            				<label>Required Bottle Qty for Order Delivery</label>
-												    		<input type="number" name="required_bottle" value="{{ $customer->required_bottle }}" class="form-control" name="bottle-count" min="0">
-												  		</div>
-													</div>
-													<div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
-														<div class="input-block mtrd">
-															<?php $value = ((isset($customer)) ? explode(",", $customer->days) : ''); ?>
-												    		<label>Select Delivery Days</label>
-									                    	<select class="form-control selectric" name="days[]" multiple="">
-									                        	<option value="" selected="false" disabled="disabled"></option>
-									                        	<option value="Mon" <?php if(in_array('Mon' ,$value)){ echo 'selected'; } ?> >Monday</option>
-									                        	<option value="Tue" <?php if(in_array('Tue' ,$value)){ echo 'selected'; } ?> >Tuesday</option>
-									                        	<option value="Wed" <?php if(in_array('Wed' ,$value)){ echo 'selected'; } ?> >Wednesday</option>
-									                        	<option value="Thu" <?php if(in_array('Thu' ,$value)){ echo 'selected'; } ?> >Thursday</option>
-									                        	<option value="Fri" <?php if(in_array('Fri' ,$value)){ echo 'selected'; } ?> >Friday</option>
-									                        	<option value="Sat" <?php if(in_array('Sat' ,$value)){ echo 'selected'; } ?> >Saturday</option>
-									                        	<option value="Sun" <?php if(in_array('Sun' ,$value)){ echo 'selected'; } ?> >Sunday</option>
-									                    	</select>
-												  		</div>
-													</div>
-												</div>
 												
 
 								            	<div class="row">
@@ -184,7 +119,7 @@ Edit Customer
 													<div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
 														<form action="" method="">
 															<div class="btnArea2">
-														  		<a href="#">Cancel</a>
+																<a href="#">Cancel</a>
 															</div>
 														</form>
 													</div>
